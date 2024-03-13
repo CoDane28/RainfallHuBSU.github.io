@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!--ICON CDN MATERIALS-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+   rel="stylesheet">
+
+   <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sign-in">
+          <form action="login_content.html" class="sign-in-form">
+              <h2 class="title">Sign In</h2>
+              <div class="input-field">
+                <span class="material-symbols-outlined">
+                  person
+                  </span>
+                <input type="text" placeholder="Username">
+              </div>
+              <div class="input-field">
+                <span class="material-symbols-outlined">
+                  lock
+                  </span>
+                <input type="password" placeholder="Password">
+              </div>
+              <input type="submit" value="Login" class="btn">
+          </form>
+          <form action="" class="about-form">
+            <div class="info">
+              <h2 class="title">Welcome to Rainfall Web</h2>
+              <div class="inside">
+                <h3>Welcome to the Rainfall Analyzer platform, your go-to tool for comprehensive rainfall data analysis. Sign in to access a wealth of meteorological insights and make informed decisions based on accurate precipitation information</h3>
+              </div>
+          </div>
+          </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Are you an Admin?</h3>
+                    <p> Unlock exclusive privileges and control with administrator access, ensuring seamless management and oversight of the system's functionalities</p>
+                    <button class="btn" id="sign-in-btn"> Sign in</button>
+                </div>
+                <img src="man-women-rain.png" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Want to know something?</h3>
+                    <p>Explore the rhythm of nature with our Rainfall Insights your gateway to understanding precipitation patterns and making informed decisions based on comprehensive meteorological data.</p>
+                    <button class="btn" id="about-btn"> About</button>
+                </div>
+                  <img src="man-umbrella.png" class="image">
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

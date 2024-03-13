@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Data and Location Search</title>
+    <link rel="stylesheet" href="login_content.css">
+    <!-- Include Leaflet CSS and JS files -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+  />
+  
+</head>
+<body>
+      <form action="#">
+        <div class="container">
+            <div class="inputData">
+                <div class="rainfall">
+                    <label for="rainfallInput">Enter Rainfall Data:</label>
+                    <input type="text" id="rainfallInput" placeholder="Enter rainfall data">
+                </div>
+                <div class="latitude">
+                    <label for="latitudeInput">Latitude:</label>
+                    <input type="text" id="latitudeInput" readonly>
+                </div>
+                <div class="longitude">
+                    <label for="longitudeInput">Longitude:</label>
+                    <input type="text" id="longitudeInput" readonly>
+                </div>
+            <button class="addBtn" id="addBtn">Add</button>
+            </div>
+            <div id="searchLocationInput">
+                <label for="locationSearchInput">Search:</label>
+                <input type="text" id="locationSearchInput" placeholder="Enter location">
+            </div>
+            <button id="searchLocation" class="searchBtn">Search Location</button>
+            <div id="map"></div>
+        </div>
+    </form>    
+
+  
+    <script src="mainn.js"></script>
+</body>
+</html>

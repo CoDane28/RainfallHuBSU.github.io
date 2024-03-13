@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*--------------ROOT VARIABLE--------------*/
+:root{
+  --color-primary: rgb(71, 7,234);
+  --color-danger: rgb(255, 67, 54);
+  --color-success: rgb(34, 202,75);
+  --color-warning:rgb(234, 181, 7);
+  --color-purple:rgb(160, 99, 245);
+  --color-white: #fff;
+  --color-dark: #27282f;
+  --color-light: #f0eff5;
+  --color-gray-dark: #56555e;
+  --color-gray-light: #86848c;
+
+  --color-primary-light:rgba(71, 7, 234,0.2);
+  --color-success-light: rgba(34, 202,75, 0.2);
+  --color-danger-light:rgba(234, 181, 7, 0.2);
+  --color-purple-light:rgba(160, 99, 245,0.2);
+
+  --card-border-raidus: 1.6rem;
+  --border-raidus-1: 1rem;
+  --border-raidus-2: 6rem;
+  
+
+  --card-padding: 1.6rem;
+  --padding-1: 1rem;
+  --padding-2: 8rem;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  appearance: none;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 12px;
+}
+
+body{
+  background: var(--color-light);
+  font-family: poppins, sans-serif;
+  min-height: 100vh;
+  color: var(--color-dark);
+}
+
+img{
+  width: 2.5%;
+}
+
+h1{
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+h3{
+  font-size: 1.2rem;
+}
+
+h4{
+  font-size: 1rem;
+}
+
+h5{
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+h5{
+  font-size: 7.6rem;
+}
+
+p{
+  font-size: 0.86rem;
+  color: var(--color-gray-dark);
+}
+
+small{
+  font-weight: 300;
+  font-size: 0.77rem;
+}
+
+.text-muted{
+  color: var(--color-gray-light);
+}
+
+.primary{
+  color: var(--color-primary);
+}
+.danger{
+  color: var(--color-danger);
+}
+.success{
+  color: var(--color-success);
+}
+.purple{
+  color: var(--color-purple);
+}
+
+
+.bg-primary{
+  background: var(--color-primary);
+  box-shadow: 0 0.8rem 0.8rem var(--color-primary-light);
+}
+.bg-danger{
+  background: var(--color-danger);
+  box-shadow: 0 0.8rem 0.8rem var(--color-danger-light);
+}
+.bg-success{
+  background: var(--color-success);
+  box-shadow: 0 0.8rem 0.8rem var(--color-success-light);
+}
+.bg-purple{
+  background: var(--color-purple);
+  box-shadow: 0 0.8rem 0.8rem var(--color-purple-light);
+}
+
+.bg-dark{
+  background:#27282f;
+  box-shadow: 0 0.8rem 0.8rem rgba(0,0,0,0.2) ;
+}
+
+/*======NAV BAR =====*/
+nav{
+  width: 100%;
+  background: var(--color-white);
+  padding: 1rem 0;
+}
+
+nav .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 96%;
+  margin: 0 auto;
+}
+
+nav img .logo{
+  width: 7rem;
+}
+
+nav .theme-btn{
+  display: flex;
+  position: absolute;
+  right: 3%;
+  background:var(--color-light);
+  width: 5rem;
+  height: 2rem;
+  border-radius: var(--border-raidus-2);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+nav .theme-btn span{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 1.3rem;
+}
+
+nav .theme-btn .active{
+  background: var(--color-dark);
+  border-radius: var(--border-raidus-2);
+  color: var(--color-white);
+}
+
+/*=================ASIDE AND SIDEBAR==================*/
+
+main{
+  display: grid;
+  grid-template-columns: 18rem auto 15rem;
+  gap: 2rem;
+  width: 96%;
+  max-height: 100%;
+  margin: 1rem auto 4rem;
+
+}
+
+main aside{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 88vh;
+}
+
+/*will display only on mobile and tablets*/
+main aside button#close-btn{
+  display: none;
+}
+
+main aside .sidebar a{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  height: 6rem;
+  color: var(--color-gray-light);
+  position: relative;
+}
+main aside .sidebar a span{
+  font-size: 1.7rem;
+  margin-left: 3rem;
+  transition: all 300ms ease;
+}
+
+main aside .sidebar a.active {
+  border-radius: var(--border-raidus-1);
+  background: var(--color-white);
+  color: var(--color-purple);
+}
+
+main aside .sidebar a.active::before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  background: var(--color-purple);
+}
+
+main aside .sidebar a:hover,
+main aside .sidebar a.active:hover {
+  color: var(--color-purple);
+}
+
+main aside .sidebar a:hover span,
+main aside .sidebar a.active:hover span {
+  margin-left: 2rem;
+}
+
+main aside .sidebar h4{
+  font-weight: 500;
+  font-size: 20px;
+}
+/*================= DASHBOARD ==================*/
+.dashboardContent .calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardContent .calendar input[type="date"] {
+  margin-left: .3rem;
+  padding: 1rem 25rem;
+  border-radius: var(--border-raidus-1);
+  background: var(--color-white);
+  color: var(--color-gray-light);
+  margin-top: 1rem; /
+}
+
+.dashboardContent .flex-container{
+  margin-top: .5rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  
+}
+.dashboardContent .flex-box {
+  position: relative;
+  width: 335px;
+  height: 200px;
+  background: #cfe4f3;
+  color: var(--color-gray-light);
+  text-align: left;
+  padding: 20px;
+  line-height: 27px;
+  border-radius: var(--card-border-raidus);
+  margin: 20px;
+  
+}
+
+.dashboardContent .flex-box img {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 40%; 
+  height: 60%; 
+}
+
+.dashboardContent canvas#chart{
+  background:#cfe4f3 ;
+  margin-left: 6%;
+  max-width: 88%;
+  margin-top: 1rem;
+  border-radius: var(--card-border-raidus);
+  padding:0;
+}
+
+/*================= GRAPH ==================*/
+
+.graphContent .calendar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graphContent .calendar input[type="date"] {
+  margin-left: 4.5rem;
+  padding: 1rem 25.5rem;
+  border-radius: var(--border-raidus-1);
+  background: var(--color-white);
+  color: var(--color-gray-light);
+  margin-top: 1rem; /
+}
+canvas#graphChart{
+  background:#cfe4f3 ;
+  margin-left: 7%;
+  max-width: 88%;
+  margin-top: 1rem;
+  border-radius: var(--card-border-raidus);
+  padding:0;
+}
+
+/*================= BLOGS ==================*/
+.blogsContent .title{
+  margin-left: .5%;
+  margin-top: 2rem;
+  font-size: 35px;
+}
+.blogsContent{
+  max-width: 70%;
+  margin: 0 auto;
+  height: 100%;
+}
+.card{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5%;
+}
+.card-body{
+  overflow: hidden;
+  padding: 20px;
+  border-radius: var(--card-border-raidus);
+}
+.card_1{
+  background-color:#cfe4f3 ;
+}
+.card_2{
+  background-color:#e7f14e ;
+}
+.card_3{
+  background-color:#e4ad16 ;
+}
+.blog-box_img img{
+  width: 100%;
+  height: auto;
+  border-radius: var(--card-border-raidus);
+}
+
+.blog-box_body{
+  padding: 26px 20px 36px 20px;
+}
+
+/*================= SETTINGS ==================*/
+.settings_Content h1{
+  margin-left: 10%;
+  margin-top: 2rem;
+  font-size: 30px;
+}
+.setting_content{
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 3%;  
+}
+.setting_content h3{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 3rem;
+}
+
+/*================= ABOUT ==================*/
+.about_Content h1{
+  margin-left: 10%;
+  margin-top: 2rem;
+  font-size: 30px;
+}
+.aboutContent{
+  margin-top: 10%;
+  margin-left: 10%;
+  width: 35%;
+  height: 35%;
+  position: relative;
+}
+.content {
+  position: absolute;
+  text-align: left;
+  margin-left: 50%;
+  top: 30%;
+  right: 10%;
+  margin-right: 10%;
+}
+.content h1{
+  font-size: 40px;
+  margin-left: 0%;
+}
+.content h3{
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+
+
+/*================= OUTPUT STYLE ==================*/
+
+#rainfallResultText{
+    font-size: 45px;
+    margin-top: 40px;
+}
+
+#locationResultText{
+  font-size: 15px;
+  margin-top: 5px;
+  width: 150px;
+}
+
+/*================= OUTPUT STYLE ==================*/
+.rightContainer {
+  width: 100%; 
+  float: right; 
+  background-color: #cfe4f3; 
+  border-radius: var(--border-raidus-1); 
+  
+}
+.listContent{
+  height: 610px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+.rightBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border: none;
+  overflow: hidden;
+  border-bottom:2px solid black ;
+}
+.rightTitle{
+  text-align: left;
+  margin-left:64%;
+  margin-right: 1%;
+}
+.rightBox img{
+  width: 30%;
+  height: 8%;
+  float: left;
+  margin-right: 65%;  
+}
+
+
+#dataList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#dataList li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid black; /* Black underline for division */
+  padding-bottom: 10px; /* Optional: Add padding for better spacing */
+}
+
+/* Additional styling for data points */
+.dataPoint {
+  font-weight: bold;
+}
