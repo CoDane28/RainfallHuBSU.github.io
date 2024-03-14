@@ -135,16 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Please fill in all input fields before adding data.');
             return;
         }
-        // Get the current date and time
-        var currentDate = new Date();
-        var timestamp = currentDate.toLocaleString(); // Customize this as needed
-        console.log("Rainfall Data added:", { rainfall: rainfallData, location: locationData,timestamp: timestamp});
-        
-
-        
-
-        saveDataToLocalStorage(rainfallData, locationData,timestamp);
-        
+        console.log("Rainfall Data added:", { rainfall: rainfallData, location: locationData});
+        saveDataToLocalStorage(rainfallData, locationData);
     }
 
     function saveDataToLocalStorage(rainfallData, locationData, timestamp) {
@@ -153,8 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       var data = {
           rainfall: rainfallData,
-          location: locationData,
-          timestamp: timestamp
+          location: locationData
       };
   
       allUserData.push(data);
