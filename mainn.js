@@ -135,71 +135,56 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Please fill in all input fields before adding data.');
             return;
         }
-        console.log("Rainfall Data added:", { rainfall: rainfallData, location: locationData});
+       console.log('Rainfall Data Added:',{rainfall:rainfallData, location:locationData})
+
         saveDataToLocalStorage(rainfallData, locationData);
+        
     }
 
-    function saveDataToLocalStorage(rainfallData, locationData, timestamp) {
+    function saveDataToLocalStorage(rainfallData, locationData) {
       var allUserDataJSON = localStorage.getItem('allUserData');
       var allUserData = allUserDataJSON ? JSON.parse(allUserDataJSON) : [];
   
       var data = {
           rainfall: rainfallData,
           location: locationData
+        
       };
   
       allUserData.push(data);
       localStorage.setItem('allUserData', JSON.stringify(allUserData));
   }
-  });
-  
-    document.addEventListener('DOMContentLoaded', function () {
+});
+
+      document.addEventListener('DOMContentLoaded', function () {
       // Retrieve data from localStorage
-      var userDataJSON = localStorage.getItem('userData');
-      
-      if (userDataJSON) {
-          var userData = JSON.parse(userDataJSON);
-
-          // Display the data in the main HTML
-          updateMainContent(userData.rainfall, userData.location);
-          createChart(userData.rainfall, userData.location, userData);
-      }
-    
-    /*------- DISPLAY RAINFALL & LOCATION IN FLEXBOX -------*/
-    function updateMainContent() {
+       // Retrieve data from localStorage
       var allUserDataJSON = localStorage.getItem('allUserData');
-      var allUserData = allUserDataJSON ? JSON.parse(allUserDataJSON) : [];
   
-      // Get the latest data
-      var latestData = allUserData.length > 0 ? allUserData[allUserData.length - 1] : null;
-  
-      // Debugging
-      console.log('Document:', document);  // Log the entire document object
-      console.log('Latest Data:', latestData);
-  
-      // Check if elements are found before updating content
-      if (latestData) {
-          // Move the variable declarations here
-          var rainfallResultText = document.getElementById('rainfallResultText');
-          var locationResultText = document.getElementById('locationResultText');
-  
-          // Debugging
-          console.log('rainfallResultText:', rainfallResultText);
-          console.log('locationResultText:', locationResultText);
-  
-          // Check if elements are found before updating content
-          if (rainfallResultText && locationResultText) {
-              // Update text content using innerText
-              rainfallResultText.innerText = `${latestData.rainfall} mm`;
-              locationResultText.innerText = `${latestData.location}`;
-          } else {
-              console.log('One or more elements not found');
-          }
-      } else {
-          console.log('No data found');
-      }
-  }
+      if (allUserDataJSON) {
+        var allUserData = JSON.parse(allUserDataJSON);
 
+      // Display the data in the main HTML
+      updateMainContent(allUserData); // Pass the retrieved data to the updateMainContent function
+      createChart(allUserData); // Pass the retrieved data to the createChart function
+  }
+});
+
+// Function to update the main content with the latest rainfall and location data
+    function updateMainContent(allUserData) {
+    // Get the latest data
+    var latestData = allUserData.length > 0 ? allUserData[allUserData.length - 1] : null;
+
+    // Check if elements are found before updating content
+    if (latestData) {
+      // Update text content using innerHTML instead of innerText
+      // This allows HTML tags to be rendered if needed
+      document.getElementById('rainfallResultText').innerHTML = `${latestData.rainfall} mm`;
+      Sdocument.getElementById('locationResultText').innerHTML = `${latestData.location}`;
+  } else {
+    console.log('No data found');
+  }
+}
 /*------- CHART FUNCTION -------*/
     function createChart() {
       // Access the chart canvas element
@@ -247,39 +232,38 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('DOMContentLoaded', function () {
         var myChart = createChart();
     });
-});
 
 
 /*------- RIGHT SECTION CONTENT -------*/
-  var dataListElement = document.getElementById('dataList');
+var dataListElement = document.getElementById('dataList');
 
-  function updateRightContainer() {
+function updateRightContainer() {
     var allUserDataJSON = localStorage.getItem('allUserData');
     var allUserData = allUserDataJSON ? JSON.parse(allUserDataJSON) : [];
-
+ 
     dataListElement.innerHTML = '';
 
     allUserData.forEach(function (userData) {
-      var listItem = document.createElement('li');
+        var listItem = document.createElement('li');
 
-      // Create and style Rainfall data point
-      var rainfallPoint = document.createElement('div');
-      rainfallPoint.textContent = `Rainfall : ${userData.rainfall}`;
-      rainfallPoint.classList.add('dataPoint');
-      listItem.appendChild(rainfallPoint);
+        // Create and style Rainfall data point
+        var rainfallPoint = document.createElement('div');
+        rainfallPoint.textContent = `Rainfall : ${userData.rainfall}`;
+        rainfallPoint.classList.add('dataPoint');
+        listItem.appendChild(rainfallPoint);
 
-      // Create and style Location data point
-      var locationPoint = document.createElement('div');
-      locationPoint.textContent = `Location: ${userData.location}`;
-      locationPoint.classList.add('dataPoint');
-      listItem.appendChild(locationPoint);
+        // Create and style Location data point
+        var locationPoint = document.createElement('div');
+        locationPoint.textContent = `Location: ${userData.location}`;
+        locationPoint.classList.add('dataPoint');
+        listItem.appendChild(locationPoint);
 
-      dataListElement.appendChild(listItem);
+        dataListElement.appendChild(listItem);
     });
-  }
+}
 
-  updateRightContainer();
-  
+updateRightContainer();
+
 
 
 /*------- BLOG CONTENT -------*/
